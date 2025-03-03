@@ -7,22 +7,14 @@
    It's possible to switch the LEDs on/off, adjust the brightness and the color as well.
    The device has to be commissioned to a Matter hub first.
    A WS2812 (NeoPixel) strip/ring/device needs to be connected to the board to the SPI SDO.
-
-   Compatible boards:
-   - Arduino Nano Matter
-   - SparkFun Thing Plus MGM240P
-   - xG24 Explorer Kit
-   - xG24 Dev Kit
-   - Seeed Studio XIAO MG24 (Sense)
-
-   Author: Tamas Jozsi (Silicon Labs)
+   
  */
 #include <Matter.h>
 #include <MatterLightbulb.h>
 #include <ezWS2812.h>
 
 /* CONFIGURATION */
-#define LED_NUMBER                  120
+#define LED_NUMBER                  60
 
 
 MatterColorLightbulb matter_color_bulb;
@@ -38,7 +30,7 @@ void setup()
 
   ledRing.begin();
   noInterrupts();
-  ledRing.set_all(0, 0, 0, 0);
+  ledRing.set_all(255, 0, 0, 100);
   interrupts();
 
   Serial.println("Matter color lightbulb");
